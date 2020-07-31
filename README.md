@@ -1,6 +1,6 @@
 # HTML Overlay for OpenSeadragon
 
-An OpenSeadragon plugin that adds HTML overlay capability.
+An OpenSeadragon plugin that adds scaling HTML overlay capability. This is different from OpenSeadragon's [built-in overlay functionality](http://openseadragon.github.io/examples/ui-overlays/); while those overlays update their location as the user zooms and pans, they don't scale their contents to match the zoom of the OSD viewer.
 
 Compatible with OpenSeadragon 2.0.0 or greater.
 
