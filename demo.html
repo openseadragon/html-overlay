@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>OpenSeadragon HTML Overlay Demo</title>
+        <script src="https://cdn.jsdelivr.net/npm/openseadragon/build/openseadragon/openseadragon.min.js"></script>
+        <script src="openseadragon-html-overlay.js"></script>
+        <style type="text/css">
+
+            html,
+            body,
+            .openseadragon1 {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+            }
+
+            .text-overlay {
+                position: absolute;
+                left: 1000px;
+                top: 500px;
+                width: 3000px;
+                font-size: 175px;
+                font-family: sans-serif;
+                color: white;
+                text-shadow: 30px 30px 15px rgba(0, 0, 0, 0.5);
+            }
+
+            .text-overlay a {
+                color: #DDF;
+            }
+
+            .image-overlay {
+                position: absolute;
+                left: 4000px;
+                top: 500px;
+                width: 1000px;
+                height: 1000px;
+                cursor: pointer;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div id="contentDiv" class="openseadragon1"></div>
+        <div class="text-overlay">
+            <h1>Hello!</h1>
+            <p>Lorem ipsum <a href="https://openseadragon.github.io" target="_blank">dolor sit amet</a>, consectetur adipiscing elit. Mauris faucibus nec ex et feugiat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nulla ut dignissim nisl.</p>
+            <p>Nam aliquam sem ut est hendrerit, a lobortis risus maximus. Nam tortor magna, tristique id sem a, faucibus tincidunt sem. Nulla hendrerit tortor at semper convallis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae.</p>
+        </div>
+        <img class="image-overlay" src="openseadragonlogo-transparent.png">
+
+        <script>
+            // ----------
+            function init() {
+                var tileSource = {
+                    Image: {
+                        xmlns: "http://schemas.microsoft.com/deepzoom/2008",
+                        Url: "http://openseadragon.github.io/example-images/highsmith/highsmith_files/",
+                        Format: "jpg",
+                        Overlap: "2",
+                        TileSize: "256",
+                        Size: {
+                            Width:  "7026",
+                            Height: "9221"
+                        }
+                    }
+                };
+
+                var viewer = OpenSeadragon({
+                    id: "contentDiv",
+                    prefixUrl: "https://cdn.jsdelivr.net/npm/openseadragon/build/openseadragon/images/",
+                    tileSources: [{
+                        tileSource: tileSource,
+                        width: 7026
+                    }]
+                });
+
+                var overlay = viewer.htmlOverlay();
+
+                overlay.element().appendChild(document.querySelector('.text-overlay'));
+
+                var imageOverlay = document.querySelector('.image-overlay');
+                overlay.element().appendChild(imageOverlay);
+                overlay.onClick(imageOverlay, function() {
+                    alert('Hello!');
+                });
+            }
+
+            // ----------
+            init();
+        </script>
+    </body>
+</html>

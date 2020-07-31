@@ -1,0 +1,30 @@
+{
+  "name": "html-overlay",
+  "version": "0.0.1",
+  "description": "An OpenSeadragon plugin that adds HTML overlay capability.",
+  "main": "openseadragon-html-overlay.js",
+  "dependencies": {
+    "openseadragon": "^2.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/openseadragon/html-overlay.git"
+  },
+  "files": [ ],
+  "keywords": [
+    "openseadragon",
+    "plugin",
+    "html",
+    "overlay"
+  ],
+  "author": "Ian Gilman",
+  "license": "BSD-3-Clause",
+  "bugs": {
+    "url": "https://github.com/openseadragon/html-overlay/issues"
+  },
+  "homepage": "https://github.com/openseadragon/html-overlay#readme"
+}
