@@ -1,4 +1,4 @@
-// OpenSeadragon HTML Overlay plugin 0.0.1
+// OpenSeadragon HTML Overlay plugin 0.0.2
 
 (function() {
 
@@ -12,12 +12,18 @@
     }
 
     // ----------
-    $.Viewer.prototype.htmlOverlay = function() {
+    $.Viewer.prototype.htmlOverlay = function(options) {
         if (this._htmlOverlayInfo) {
             return this._htmlOverlayInfo;
         }
 
         this._htmlOverlayInfo = new Overlay(this);
+        if (options && options.scale) {
+            this._htmlOverlayInfo._scale = options.scale; // arbitrary scale for created fabric canvas
+        }
+        else {
+            this._htmlOverlayInfo._scale = 1;
+        }
         return this._htmlOverlayInfo;
     };
 
@@ -84,7 +90,7 @@
             var rotation = this._viewer.viewport.getRotation();
 
             // TODO: Expose an accessor for _containerInnerSize in the OSD API so we don't have to use the private variable.
-            var scale = this._viewer.viewport._containerInnerSize.x * zoom;
+            var scale = this._viewer.viewport._containerInnerSize.x * zoom / this._scale;
 
             this._element.style.transform =
                 'translate(' + p.x + 'px,' + p.y + 'px) scale(' + scale + ') rotate(' + rotation + ')';
