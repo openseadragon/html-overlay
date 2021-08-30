@@ -7,11 +7,19 @@
         <style type="text/css">
 
             html,
-            body,
-            .openseadragon1 {
+            body {
                 width: 100%;
                 height: 100%;
                 margin: 0;
+                float: left;
+            }
+
+            .openseadragon1,
+            .openseadragon2 {
+                width: calc(50% - 10px);
+                height: 100%;
+                margin: 5px;
+                float: left;
             }
 
             .text-overlay {
@@ -38,16 +46,48 @@
                 cursor: pointer;
             }
 
+            .text-overlay2 {
+                position: absolute;
+                left: 200px;
+                top: 65px;
+                width: 420px;
+                font-size: 25px;
+                font-family: sans-serif;
+                color: white;
+                text-shadow: 3px 3px 2px rgba(0, 0, 0, 0.5);
+            }
+
+            .text-overlay2 a {
+                color: #DDF;
+            }
+
+            .image-overlay2 {
+                position: absolute;
+                left: 650px;
+                top: 65px;
+                width: 140px;
+                height: 140px;
+                cursor: pointer;
+            }
+
         </style>
     </head>
     <body>
         <div id="contentDiv" class="openseadragon1"></div>
+        <div id="contentDiv2" class="openseadragon2"></div>
         <div class="text-overlay">
             <h1>Hello!</h1>
             <p>Lorem ipsum <a href="https://openseadragon.github.io" target="_blank">dolor sit amet</a>, consectetur adipiscing elit. Mauris faucibus nec ex et feugiat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nulla ut dignissim nisl.</p>
             <p>Nam aliquam sem ut est hendrerit, a lobortis risus maximus. Nam tortor magna, tristique id sem a, faucibus tincidunt sem. Nulla hendrerit tortor at semper convallis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae.</p>
         </div>
         <img class="image-overlay" src="openseadragonlogo-transparent.png">
+        <div class="text-overlay2">
+            <h1>Hello! This overlay is using scale of 1000</h1>
+            <p>Lorem ipsum <a href="https://openseadragon.github.io" target="_blank">dolor sit amet</a>, consectetur adipiscing elit. Mauris faucibus nec ex et feugiat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nulla ut dignissim nisl.</p>
+            <p>Nam aliquam sem ut est hendrerit, a lobortis risus maximus. Nam tortor magna, tristique id sem a, faucibus tincidunt sem. Nulla hendrerit tortor at semper convallis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae.</p>
+        </div>
+        <img class="image-overlay2" src="openseadragonlogo-transparent.png">
+
 
         <script>
             // ----------
@@ -84,6 +124,27 @@
                 overlay.onClick(imageOverlay, function() {
                     alert('Hello!');
                 });
+
+                var viewer2 = OpenSeadragon({
+                    id: "contentDiv2",
+                    prefixUrl: "https://cdn.jsdelivr.net/npm/openseadragon/build/openseadragon/images/",
+                    tileSources: [{
+                        tileSource: tileSource,
+
+                    }]
+                });
+
+                var overlay2 = viewer2.htmlOverlay({scale: 1000});
+
+                overlay2.element().appendChild(document.querySelector('.text-overlay2'));
+
+                var imageOverlay2 = document.querySelector('.image-overlay2');
+                overlay2.element().appendChild(imageOverlay2);
+                overlay2.onClick(imageOverlay2, function() {
+                    alert('Hello! This image has different dimensions');
+                });
+
+
             }
 
             // ----------

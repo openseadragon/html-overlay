@@ -1,6 +1,10 @@
 OPENSEADRAGON HTML OVERLAY CHANGELOG
 ===================================
 
+0.0.2:
+
+* Scale option added
+
 0.0.1:
 
 * First version

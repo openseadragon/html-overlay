@@ -12,14 +12,16 @@
     }
 
     // ----------
-    $.Viewer.prototype.htmlOverlay = function(options) {
+    $.Viewer.prototype.htmlOverlay = function (options) {
+        options = options || {};
+
         if (this._htmlOverlayInfo) {
             return this._htmlOverlayInfo;
         }
 
         this._htmlOverlayInfo = new Overlay(this);
-        if (options && options.scale) {
-            this._htmlOverlayInfo._scale = options.scale; // arbitrary scale for created fabric canvas
+        if (options.scale) {
+            this._htmlOverlayInfo._scale = options.scale; // arbitrary scale for created overlay element
         }
         else {
             this._htmlOverlayInfo._scale = 1;
