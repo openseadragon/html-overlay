@@ -12,7 +12,7 @@ To add HTML overlay capability to your OpenSeadragon Viewer, call `htmlOverlay()
 
 ### Options
 
-Currently there's just a single option: `scale`. By default the scale is set to 1, meaning that the HTML coordinates match the viewport coordinates of the viewer. Since the default viewport coordinates range from 0 to 1, this means you'd need to set your overlay's `font-size` to something tiny like `0.025px`. Unfortunately browsers don't behave well with such sizes. One solution is to change your viewport coordinates to a bigger range, by setting your image size to something like 1000 when you load it into your viewer. Another solution is to use the `scale` option and set it similarly, like so: `htmlOverlay({ scale: 1000 })`.
+Currently there's just a single option: `scale`. By default the scale is set to 1, meaning that the HTML coordinates match the viewport coordinates of the viewer. Since the default viewport coordinates range from 0 to 1, this means you'd need to set your overlay's `font-size` to something tiny like `0.025px`. Unfortunately browsers don't behave well with such sizes. One solution is to change your viewport coordinates to a bigger range, by setting your image size to something like 1000 when you load it into your viewer. Another solution is to use the `scale` option and set it similarly, like so: `htmlOverlay({ scale: 1000 })`. See the demo for examples of both approaches.
 
 ### Methods
 
