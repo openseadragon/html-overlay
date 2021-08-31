@@ -3,7 +3,7 @@ OPENSEADRAGON HTML OVERLAY CHANGELOG
 
 0.0.2:
 
-* Scale option added
+* Scale option added (#2 @altert)
 
 0.0.1:
 
