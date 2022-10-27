@@ -1,6 +1,10 @@
 OPENSEADRAGON HTML OVERLAY CHANGELOG
 ===================================
 
+0.0.3:
+
+* Better width / height handling for base HTML element for more consistent event handling (#4 @iangilman)
+
 0.0.2:
 
 * Scale option added (#2 @altert)
