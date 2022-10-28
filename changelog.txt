@@ -1,6 +1,10 @@
 OPENSEADRAGON HTML OVERLAY CHANGELOG
 ===================================
 
+0.0.4:
+
+* Fixed link clicking for new OSD (#5 @iangilman)
+
 0.0.3:
 
 * Better width / height handling for base HTML element for more consistent event handling (#4 @iangilman)
