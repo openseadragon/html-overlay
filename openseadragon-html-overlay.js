@@ -78,7 +78,11 @@
         new OpenSeadragon.MouseTracker({
             element: this._element,
             clickHandler: function (event) {
-                var clickTarget = event.originalEvent.target;
+                // The event.originalTarget is the new OSD way; we're keeping
+                // the event.originalEvent.target fallback for old OSD.
+                var clickTarget =
+                    event.originalTarget || event.originalEvent.target;
+
                 if (/a/i.test(clickTarget.nodeName)) {
                     if (clickTarget.target === '_blank') {
                         window.open(clickTarget.href);
